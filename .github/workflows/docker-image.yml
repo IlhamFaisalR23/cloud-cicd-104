@@ -1,0 +1,35 @@
+name: CI/CD Simulation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Simulate Authentication
+        run: echo "Authentication using GitHub Secrets simulated"
+
+      - name: Simulate Docker Build
+        run: echo "Docker image build simulated successfully"
+
+      - name: Simulate Push Image
+        run: echo "Push to container registry simulated successfully"
+
+      - name: Simulate Deployment
+        run: echo "Deployment to cloud service simulated successfully"
